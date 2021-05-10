@@ -16,6 +16,9 @@ const Exam = Object.create(null);
 //    for example:
 //      an input list of [1,2,3,4,5,6,7,8]
 //      returns [1,4,7]
+Exam.every_third = function (array) {
+    return array.filter((ignore, k) => k % 3 === 0);
+};
 
 Exam.every_third = function (array) {
     return array.filter((ignore, k) => k % 3 === 0);
@@ -73,25 +76,28 @@ return max_1
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
 Exam.value_greatest_even = function (value) {
-    let even = Object.keys(value)
-    let even_1 = even_1.filter()
-    let even_2 = even.reduce(function (previous, current){
-        if (previous )
-        (previous % 2 === 0 > current % 2 === 0) return previous;
-        else return current })
+    let even = Object.values(value)
+    let even_1 = even.filter((k) => k % 2 === 0);
+    let even_2 = even_1.reduce(function (previous, current){
+        if (previous.length > current.length) return previous;
+           else return current })
     return even_2
 };
 
+//let even = Object.values(value)
+    //let even_1 = even.filter((k) => k % 2 === 0);
+   //return Math.max(...even_1)
+//};
 
-// Arguments
+   // Arguments
 
 // Write a function with two input arguments "username" and "location".
 // The function should return text "Hello, {name}, how is {location}?".
 //
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
-Exam.greeting = function () {
-    return;
+Exam.greeting = function (username, location = "London") {
+    return `Hello, + ${username} + how is  + ${location} + ?`
 };
 
 
@@ -102,8 +108,10 @@ Exam.greeting = function () {
 //     offset with a default of 0
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
-Exam.floor_line = function () {
-    return;
+Exam.floor_line = function (x, scalar = 1, offset = 0) {
+    let calculation = x * scalar + offset
+    if (calculation > 0) return calculation
+    else return 0
 };
 
 export default Object.freeze(Exam);
