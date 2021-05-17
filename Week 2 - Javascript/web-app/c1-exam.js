@@ -18,6 +18,10 @@ Exam.every_third = function (array) {
     return array.filter((ignore, k) => k % 3 === 0);
 };
 
+Exam.every_third = function (array) {
+    return array.filter((ignore, k) => k % 3 === 0);
+};
+// filter((value of key, index)
 
 // Strings
 
@@ -29,8 +33,18 @@ Exam.every_third = function (array) {
 //       the input sentences "the cow jumped over the moon" and
 //                            "jack and jill went up the"
 //       returns "the jack cow and jumped jill over went the up moon the"
-Exam.merge_sentences = function () {
-    return;
+Exam.merge_sentences = function (sentence_1, sentence_2) {
+    let new_list = [];
+    let list_1 = sentence_1.split(' ');
+    let list_2 = sentence_2.split(' ');
+    if (list_1.length === list_2.length){
+        list_1.forEach(function(item, index){
+            new_list.push(item);
+            new_list.push(list_2[index]);
+    });
+}
+    else {throw 'ValueError'};
+    return new_list
 };
 
 // Write a function that returns the number of lowercase letters in
@@ -38,35 +52,50 @@ Exam.merge_sentences = function () {
 //     for example:
 //          the input "sPonGe bOb"
 //          returns 6
-Exam.lowercase_count = function () {
-    return;
+Exam.lowercase_count = function (string) {
+    let sentence = string.split("");
+    let lowercase_string = sentence.filter( letter => letter.toLowerCase() === letter);
+    return lowercase_string.length;
 };
 
 
-// Objects
+// Objects (Dictionary in python)
 
 // Write a function that returns the longest a key in the input object
 // whose keys are all strings.
-Exam.longest_key = function () {
-    return;
+Exam.longest_key = function (object) {
+    let max = Object.keys(object)
+    let max_1 = max.reduce(function (previous, current){
+        if (previous.length > current.length) return previous;
+        else return current })
+return max_1
 };
 
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
-Exam.value_greatest_even = function () {
-    return;
+Exam.value_greatest_even = function (value) {
+    let even = Object.values(value)
+    let even_1 = even.filter((k) => k % 2 === 0);
+    let even_2 = even_1.reduce(function (previous, current){
+        if (previous.length > current.length) return previous;
+           else return current })
+    return even_2
 };
 
+//let even = Object.values(value)
+    //let even_1 = even.filter((k) => k % 2 === 0);
+   //return Math.max(...even_1)
+//};
 
-// Arguments
+   // Arguments
 
 // Write a function with two input arguments "username" and "location".
 // The function should return text "Hello, {name}, how is {location}?".
 //
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
-Exam.greeting = function () {
-    return;
+Exam.greeting = function (username, location = "London") {
+    return `Hello, + ${username} + how is  + ${location} + ?`
 };
 
 
@@ -77,8 +106,10 @@ Exam.greeting = function () {
 //     offset with a default of 0
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
-Exam.floor_line = function () {
-    return;
+Exam.floor_line = function (x, scalar = 1, offset = 0) {
+    let calculation = x * scalar + offset
+    if (calculation > 0) return calculation
+    else return 0
 };
 
 export default Object.freeze(Exam);
