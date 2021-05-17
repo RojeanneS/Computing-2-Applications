@@ -1,3 +1,5 @@
+import { array } from "fast-check";
+
 /**
  * This worksheet adapts the final question of Exam 1 of Computing 1 2020/21.
  * Here you should complete each of the functions as they are specified.
